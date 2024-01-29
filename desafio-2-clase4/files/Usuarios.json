@@ -1,0 +1,56 @@
+[
+  {
+    "nombre": "Luis",
+    "apellido": "Gomez",
+    "edad": 20,
+    "curso": "Desarrollo Web"
+  },
+  {
+    "nombre": "Miguel",
+    "apellido": "Rodriguez",
+    "edad": 18,
+    "curso": "JavaScript"
+  },
+  {
+    "nombre": "Nahuel",
+    "apellido": "Wapi",
+    "edad": 30,
+    "curso": "React JS"
+  },
+  {
+    "nombre": "Ismael",
+    "apellido": "Zuckerberg",
+    "edad": 40,
+    "curso": "Desarrollo Web"
+  },
+  {
+    "nombre": "Leonardo",
+    "apellido": "Fabio",
+    "edad": 25,
+    "curso": "Backend"
+  },
+  {
+    "nombre": "Rodrigo",
+    "apellido": "Ezpeletta",
+    "edad": 32,
+    "curso": "Frontend"
+  },
+  {
+    "nombre": "Demian",
+    "apellido": "San Martin",
+    "edad": 24,
+    "curso": "Frontend"
+  },
+  {
+    "nombre": "Carolina",
+    "apellido": "Di Bacco",
+    "edad": 22,
+    "curso": "Frontend"
+  },
+  {
+    "nombre": "Carolina",
+    "apellido": "Di Bacco",
+    "edad": 22,
+    "curso": "Frontend"
+  }
+]
