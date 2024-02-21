@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Mochila escolar",
+        "price": 2500,
+        "thumbnail": "someUrl.com",
+        "id": 1
+    },
+    {
+        "title": "Cuaderno Éxito",
+        "price": 400,
+        "thumbnail": "someUrl.com",
+        "id": 2
+    },
+    {
+        "title": "Hojas Rivadavia",
+        "price": 100,
+        "thumbnail": "someUrl.com",
+        "id": 3
+    },
+    {
+        "title": "Hojas Cuadriculadas",
+        "price": 120,
+        "thumbnail": "someUrl.com",
+        "id": 4
+    },
+    {
+        "title": "Cartuchera",
+        "price": 700,
+        "thumbnail": "someUrl.com",
+        "id": 5
+    }
+  ]
+  

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Products</title>
+    <link rel="stylesheet" href="/styles/realtime.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Productos en tiempo real</h1>
+        <div id="productList"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.socket.io/4.2.0/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+        socket.on('updateProducts', (productos) => {
+            $('#productList').empty();
+            productos.forEach(producto => {
+                $('#productList').append(`
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">${producto.title}</h5>
+                            <p class="card-text">Precio: $${producto.price}</p>
+                            <img src="${producto.thumbnail}" class="card-img-top" alt="...">
+                        </div>
+                    </div>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>
