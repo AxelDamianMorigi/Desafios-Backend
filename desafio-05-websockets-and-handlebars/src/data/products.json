@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Hojas Rivadavia",
+    "description": "Paquete de hojas para escritura.",
+    "price": 15000,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_877093-MLU73562404269_122023-O.webp",
+    "code": "HR123",
+    "stock": 100,
+    "category": "papeleria",
+    "status": true,
+    "id": 1
+  },
+  {
+    "title": "Mochila Nike",
+    "description": "Mochila deportiva de la marca Nike.",
+    "price": 30000,
+    "thumbnail": "https://nikearprod.vtexassets.com/arquivos/ids/716876/DQ5653_417_B.jpg?v=638237482206170000",
+    "code": "MN456",
+    "stock": 50,
+    "category": "accesorios",
+    "status": true,
+    "id": 2
+  }
+]
