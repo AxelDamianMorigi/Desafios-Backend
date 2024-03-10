@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const collectionName = 'courses';
+import mongoose from 'mongoose';
 
 const stringTypeSchemaUniqueRequired = {
     type: String,
@@ -14,15 +12,25 @@ const stringTypeSchemaNonUniqueRequired = {
 };
 
 const courseSchema = new mongoose.Schema({
-    title: stringTypeSchemaUniqueRequired,
-    description: stringTypeSchemaNonUniqueRequired,
-    teacherName: stringTypeSchemaNonUniqueRequired,
+    title: {
+        ...stringTypeSchemaUniqueRequired,
+        minlength: 5,
+        maxlength: 100
+    },
+    description: {
+        ...stringTypeSchemaNonUniqueRequired,
+        minlength: 10,
+        maxlength: 500
+    },
+    teacherName: {
+        ...stringTypeSchemaNonUniqueRequired,
+        minlength: 2,
+        maxlength: 50
+    },
     students: {
-        type: [String],
-        default: []
-    }
+        type: [String], // Supongo que los estudiantes se identifican por su ID
+        default: [],
+    },
 });
 
-const Course = mongoose.model('Course', courseSchema, collectionName);
-
-module.exports = Course;
+export default mongoose.model('Course', courseSchema);

@@ -1,23 +1,29 @@
-const Course = require("../db/models/courses.js");
+import { Course } from "./models/courses.js";
 
 export default class CourseService {
     constructor() {
-        console.log("Working courses with Database persistence in mongodb");
+        console.log("Working with courses using Database persistence in MongoDB");
     }
 
-    getAll = async () => {
-        let courses = await Course.find();
-        return courses.map(course => course.toObject());
-    }
-
-    save = async (courseData) => {
+    // Obtener todos los cursos
+    getAllCourses = async () => {
         try {
-            const newCourse = new Course(courseData);
-            await newCourse.save();
-            return newCourse.toObject();
+            const courses = await Course.find();
+            return courses;
         } catch (error) {
-            console.error("Error saving course:", error);
-            return null;
+            console.error("Error al obtener los cursos:", error);
+            throw new Error("No se pudo obtener los cursos");
+        }
+    }
+
+    // Guardar un nuevo curso
+    saveCourse = async (courseData) => {
+        try {
+            const newCourse = await Course.create(courseData);
+            return newCourse;
+        } catch (error) {
+            console.error("Error al guardar el curso:", error);
+            throw new Error("No se pudo guardar el curso");
         }
     }
 }

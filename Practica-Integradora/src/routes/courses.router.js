@@ -1,27 +1,26 @@
 import { Router } from 'express';
-import CourseService from '../services/db/courses.service.js';
+import CourseService from '../services/db/courses.service.js'; // Importar el servicio de cursos de la base de datos
 
 const router = Router();
 const coursesService = new CourseService();
 
+// Obtener todos los cursos
 router.get('/', async (req, res) => {
     try {
-        const courses = await coursesService.getAll();
+        const courses = await coursesService.getAllCourses();
         res.json(courses);
     } catch (error) {
-        console.error("Error al obtener todos los cursos:", error);
-        res.status(500).json({ message: "Error al obtener todos los cursos" });
+        res.status(500).json({ message: error.message });
     }
 });
 
+// Agregar un nuevo curso
 router.post('/', async (req, res) => {
-    const { title, description, teacherName } = req.body;
     try {
-        const newCourse = await coursesService.save({ title, description, teacherName });
+        const newCourse = await coursesService.createCourse(req.body);
         res.status(201).json(newCourse);
     } catch (error) {
-        console.error("Error al crear un nuevo curso:", error);
-        res.status(500).json({ message: "Error al crear un nuevo curso" });
+        res.status(400).json({ message: error.message });
     }
 });
 

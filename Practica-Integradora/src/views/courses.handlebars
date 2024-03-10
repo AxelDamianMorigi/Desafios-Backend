@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Listado de Cursos</h1>
+    <ul>
+        {{#each courses}}
+        <li>
+            <strong>Nombre del Curso:</strong> {{this.title}} <br>
+            <strong>Descripción:</strong> {{this.description}} <br>
+            <strong>Profesor:</strong> {{this.teacherName}} <br>
+            <strong>Estudiantes:</strong>
+            <ul>
+                {{#each this.students}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

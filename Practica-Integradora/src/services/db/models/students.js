@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const collectionName = 'students';
+import mongoose from 'mongoose';
 
 const stringTypeSchemaUniqueRequired = {
     type: String,
@@ -8,22 +6,37 @@ const stringTypeSchemaUniqueRequired = {
     required: true
 };
 
-const numberTypeSchemaRequired = {
-    type: Number,
+const stringTypeSchemaNonUniqueRequired = {
+    type: String,
     required: true
 };
 
 const studentSchema = new mongoose.Schema({
-    name: stringTypeSchemaUniqueRequired,
-    lastName: stringTypeSchemaUniqueRequired,
-    age: numberTypeSchemaRequired,
-    id: stringTypeSchemaUniqueRequired,
+    name: {
+        ...stringTypeSchemaNonUniqueRequired,
+        minlength: 2,
+        maxlength: 50
+    },
+    lastName: {
+        ...stringTypeSchemaNonUniqueRequired,
+        minlength: 2,
+        maxlength: 50
+    },
+    age: {
+        type: Number,
+        required: true,
+        min: 18,
+        max: 99
+    },
+    id: {
+        ...stringTypeSchemaUniqueRequired,
+        minlength: 5,
+        maxlength: 10
+    },
     courses: {
-        type: [String],
-        default: []
-    }
+        type: [String], // Supongo que los cursos se identifican por su ID
+        default: [],
+    },
 });
 
-const Student = mongoose.model('Student', studentSchema, collectionName);
-
-module.exports = Student;
+export default mongoose.model('Student', studentSchema);

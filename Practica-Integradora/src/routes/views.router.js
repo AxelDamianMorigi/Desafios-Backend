@@ -1,31 +1,28 @@
 import { Router } from 'express';
-import Users from '../dao/dbManagers/users.js';
-import Courses from '../dao/dbManagers/courses.js';
-
-const usersManager = new Users();
-const coursesManager = new Courses();
+import StudentService from '../services/db/students.service.js'; // Importar el servicio de estudiantes de la base de datos
+import CourseService from '../services/db/courses.service.js'; // Importar el servicio de cursos de la base de datos
 
 const router = Router();
+const studentService = new StudentService();
+const courseService = new CourseService();
 
 router.get('/', async (req, res) => {
     try {
-        let users = await usersManager.getAll();
-        console.log(users);
-        res.render('users', { users }); // Renderizamos la vista 'users' y pasamos los datos de usuarios
+        const students = await studentService.getAllStudents();
+        res.render('students', { students });
     } catch (error) {
-        console.error("Error al obtener usuarios:", error);
-        res.status(500).send({ error: error, message: "Error al obtener usuarios" });
+        console.error(error);
+        res.status(500).send({ error: error, message: "No se pudo obtener la lista de estudiantes." });
     }
 });
 
 router.get('/courses', async (req, res) => {
     try {
-        let courses = await coursesManager.getAll();
-        console.log(courses);
-        res.render('courses', { courses }); // Renderizamos la vista 'courses' y pasamos los datos de cursos
+        const courses = await courseService.getAllCourses();
+        res.render('courses', { courses });
     } catch (error) {
-        console.error("Error al obtener cursos:", error);
-        res.status(500).send({ error: error, message: "Error al obtener cursos" });
+        console.error(error);
+        res.status(500).send({ error: error, message: "No se pudo obtener la lista de cursos." });
     }
 });
 
