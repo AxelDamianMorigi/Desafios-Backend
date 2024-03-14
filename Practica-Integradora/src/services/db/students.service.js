@@ -1,11 +1,11 @@
-import { Student } from "./models/students.js"; // Importar el modelo de estudiantes
+import Student from "../models/students.js"; 
 
 export default class StudentService {
     constructor() {
-        console.log("Working with students using Database persistence in MongoDB");
+        console.log("Trabajando con estudiantes utilizando persistencia en MongoDB");
     }
 
-    // Obtener todos los estudiantes
+ 
     getAllStudents = async () => {
         try {
             const students = await Student.find();
@@ -16,7 +16,7 @@ export default class StudentService {
         }
     }
 
-    // Guardar un nuevo estudiante
+ 
     createStudent = async (studentData) => {
         try {
             const newStudent = await Student.create(studentData);
@@ -27,7 +27,7 @@ export default class StudentService {
         }
     }
 
-    // Obtener un estudiante por ID
+ 
     getStudentById = async (studentId) => {
         try {
             const student = await Student.findById(studentId);
@@ -41,7 +41,7 @@ export default class StudentService {
         }
     }
 
-    // Actualizar un estudiante por ID
+
     updateStudentById = async (studentId, newData) => {
         try {
             const updatedStudent = await Student.findByIdAndUpdate(studentId, newData, { new: true });
@@ -55,7 +55,7 @@ export default class StudentService {
         }
     }
 
-    // Eliminar un estudiante por ID
+
     deleteStudentById = async (studentId) => {
         try {
             const deletedStudent = await Student.findByIdAndDelete(studentId);

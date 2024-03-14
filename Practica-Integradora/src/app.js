@@ -11,7 +11,7 @@ const app = express();
 // Configuración del motor de plantillas Handlebars
 app.engine('handlebars', expressHandlebars());
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(import.meta.url, 'views'));
 
 // Middleware para parsear body JSON y URL-encoded
 app.use(express.json());

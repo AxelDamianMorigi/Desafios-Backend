@@ -1,11 +1,11 @@
-import { Course } from "./models/courses.js";
+import Course from "../models/courses.js"; 
 
 export default class CourseService {
     constructor() {
-        console.log("Working with courses using Database persistence in MongoDB");
+        console.log("Trabajando con cursos utilizando persistencia en MongoDB");
     }
 
-    // Obtener todos los cursos
+
     getAllCourses = async () => {
         try {
             const courses = await Course.find();
@@ -16,7 +16,7 @@ export default class CourseService {
         }
     }
 
-    // Guardar un nuevo curso
+
     saveCourse = async (courseData) => {
         try {
             const newCourse = await Course.create(courseData);

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 const stringTypeSchemaUniqueRequired = {
     type: String,
     unique: true,
@@ -10,6 +11,7 @@ const stringTypeSchemaNonUniqueRequired = {
     type: String,
     required: true
 };
+
 
 const courseSchema = new mongoose.Schema({
     title: {
@@ -27,10 +29,8 @@ const courseSchema = new mongoose.Schema({
         minlength: 2,
         maxlength: 50
     },
-    students: {
-        type: [String], // Supongo que los estudiantes se identifican por su ID
-        default: [],
-    },
+    students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }] 
 });
+
 
 export default mongoose.model('Course', courseSchema);

@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import StudentService from '../services/db/students.service.js'; // Importar el servicio de estudiantes de la base de datos
+import StudentService from '../services/students.service.js'; 
 
 const router = Router();
 const studentService = new StudentService();
 
-// Obtener todos los estudiantes
+
 router.get('/', async (req, res) => {
     try {
         const students = await studentService.getAllStudents();
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Agregar un nuevo estudiante
+
 router.post('/', async (req, res) => {
     try {
         const newStudent = await studentService.createStudent(req.body);

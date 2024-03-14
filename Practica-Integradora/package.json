@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "14.x"
+    "node": "20.x"
+
   },
   "keywords": [
     "express",
@@ -21,6 +22,6 @@
   "dependencies": {
     "express": "^4.18.3",
     "express-handlebars": "^6.0.7",
-    "mongoose": "^7.6.9"
+    "mongoose": "^7.6.10"
   }
 }
