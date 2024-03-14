@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import StudentService from '../services/db/students.service.js'; 
-import CourseService from '../services/db/courses.service.js';
+import StudentService from '../services/students.service.js'; 
+import CourseService from '../services/courses.service.js';
 
 const router = Router();
 const studentService = new StudentService();
