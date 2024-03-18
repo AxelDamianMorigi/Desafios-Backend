@@ -1,7 +1,7 @@
 {
-    "name": "ecommercevueltaalcole",
+    "name": "ecommercejuegos",
     "version": "1.0.0",
-    "description": "Proyecto final de backend",
+    "description": "PrimeraPreEntrega",
     "main": "server.js",
     "scripts": {
       "start": "node server.js"
